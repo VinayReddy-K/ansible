@@ -9,6 +9,7 @@
       ansible.builtin.yum:
         name: nodejs
         state: present
+  tasks:
     - name: starting nodejs
       ansible.builtin.systemd:
         name: nodejs
