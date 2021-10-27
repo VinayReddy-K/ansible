@@ -2,3 +2,8 @@
   yum:
     name: nginx
     state: installed
+
+- name: Remove old content
+  file:
+    path: /usr/share/nginx/html/
+    state: absent
