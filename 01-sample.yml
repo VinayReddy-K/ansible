@@ -18,10 +18,10 @@
 - name: Sample Play 3
   hosts: all
   roles:
-    - name: demo
-      vars:
-        MSG: Hello
+    name: demo
+    vars:
+      MSG: Hello
 
-    - name: demo
-      vars:
-        MSG: World
+    name: demo
+    vars:
+      MSG: World
