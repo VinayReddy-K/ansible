@@ -21,7 +21,7 @@
     remote_src: yes
 
 - name: copying roboshop config file
-  ansible.builtin.copy:
+  copy:
   src: roboshop.conf
   dest: /etc/systemd/system/roboshop.conf
 
