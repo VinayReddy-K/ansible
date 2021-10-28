@@ -34,7 +34,6 @@
   systemd:
     name: catalogue
     state: restarted
-    dest: /etc/systemd/system/catalogue.service
     daemon_reload: yes
 
 
