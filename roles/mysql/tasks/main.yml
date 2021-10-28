@@ -31,4 +31,31 @@
   shell: grep 'A temporary password' /var/log/mysqld.log | awk '{print $NF}'
   register: out
 
+- name: Reset Mysql Passwd
+  shell: echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'RoboShop@1';" | mysql --connect-expired-password -uroot -p$"{{out.stdout}}"
+
+- name: Uninstall Validate passwd plugin
+  community.mysql.mysql_query:
+    query: uninstall plugin validate_password
+    login_user: root
+    login_password: RoboShop@1
+  ignore_errors: yes
+
+- name: Download and Extract Frontend content
+  include_role:
+    name: common
+    tasks_from: download
+
+##- name: Load Schema
+##  community.mysql.mysql_db:
+##    state: import
+##    name: all
+##    target: /tmp/mysql-main/shipping.sql
+##    login_user: root
+##    login_password: RoboShop@1
+##
+
+
+
+
 
