@@ -53,3 +53,10 @@
   become: yes
   roles:
     - name: shipping
+
+- name: RoboShop Rabbitmq setup
+  hosts: RABBITMQ
+  tags: rabbitmq
+  become: yes
+  roles:
+    - name: rabbitmq
