@@ -16,4 +16,7 @@
     src: /tmp/catalogue-main/
     dest: /home/roboshop/catalogue/
     remote_src: yes
+    owner: roboshop
+    group: roboshop
+
 
