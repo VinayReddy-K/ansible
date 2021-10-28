@@ -33,7 +33,7 @@
 
 - name: Reset Mysql Passwd
   when: default_mysql_passwd.failed
-  shell: echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'RoboShop@1';" | mysql --connect-expired-password -uroot -p{{out.stdout}}
+  shell: echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'RoboShop@1';" | mysql --connect-expired-password -uroot -p"{{out.stdout}}"
 
 - name: Uninstall Validate passwd plugin
   community.mysql.mysql_query:
