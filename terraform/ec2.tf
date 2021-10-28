@@ -10,7 +10,7 @@ resource "aws_instance" "ansible" {
 
 resource "aws_route53_record" "records" {
   count                     = local.LENGTH
-  name                      = element(var.COMPONENTS, count.index)
+  name                      = "${element(var.COMPONENTS, count.index)}-${var.ENV}"
   type                      = "A"
   zone_id                   = "Z05588222UV008VFLU0F0"
   ttl                       = 300
@@ -28,7 +28,7 @@ output "attributes" {
 
 resource "local_file" "ansible" {
   content         = "[FRONTEND]\n${aws_instance.ansible.*.private_ip[9]}\n[PAYMENT]\n${aws_instance.ansible .*.private_ip[8]}\n[SHIPPING]\n${aws_instance.ansible.*.private_ip[7]}\n[USER]\n${aws_instance   .ansible.*.private_ip[6]}\n[CATALOGUE]\n${aws_instance.ansible.*.private_ip[5]}\n[CART]\n${aws_instance.ansible.*.private_ip[4]}\n[REDIS]\n${aws_instance.ansible.*.private_ip[3]}\n[RABBITMQ]\n${aws_instance.ansible.*.private_ip[2]}\n[MONGODB]\n${aws_instance.ansible.*.private_ip[1]}\n[MYSQL]\n${aws_instance.ansible.*.private_ip[0]}"
-  filename = "/tmp/inv-roboshop"
+  filename        = "/tmp/inv-roboshop-${var.ENV}"
 }
 
  
