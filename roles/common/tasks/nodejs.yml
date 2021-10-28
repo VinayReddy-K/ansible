@@ -19,7 +19,7 @@
     owner: roboshop
     group: roboshop
 
-- name: Installing Nodejs dependencied
+- name: Installing Nodejs dependencies
   community.general.npm:
     path: /home/roboshop/catalogue/
     state: latest
@@ -28,6 +28,7 @@
 - name: Update Systemd Configuration
   copy:
     src: systemd.service
+    dest: /etc/systemd/system/catalogue.service
 
 ##- name: Restart Catalogue Service
 ##  systemd:
