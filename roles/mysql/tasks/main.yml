@@ -22,9 +22,9 @@
   register: default_mysql_passwd
   ignore_errors: yes
 
-- name: print
-  debug:
-    msg: "{{default_mysql_passwd}}"
+##- name: print
+##  debug:
+##    msg: "{{default_mysql_passwd}}"
 
 - name: Grab Default Password
   when: default_mysql_passwd.failed
@@ -32,7 +32,8 @@
   register: out
 
 - name: Reset Mysql Passwd
-  shell: echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'RoboShop@1';" | mysql --connect-expired-password -uroot -p${{out.stdout}}
+  when: default_mysql_passwd.failed
+  shell: echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'RoboShop@1';" | mysql --connect-expired-password -uroot -p{{out.stdout}}
 
 - name: Uninstall Validate passwd plugin
   community.mysql.mysql_query:
