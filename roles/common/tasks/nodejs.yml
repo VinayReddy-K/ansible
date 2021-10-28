@@ -19,4 +19,10 @@
     owner: roboshop
     group: roboshop
 
+- name: Installing Nodejs dependencied
+  community.general.npm:
+    path: /home/roboshop/catalogue/
+    state: latest
+  become_user: roboshop
+
 
