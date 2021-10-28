@@ -4,7 +4,7 @@ resource "aws_instance" "ansible" {
   instance_type             = "t2.micro"
   vpc_security_group_ids    = ["sg-0ce90bc6ff22f0a2c"]
   tags                      = {
-    Name                    = element(var.COMPONENTS, count.index)
+    Name                    = "${element(var.COMPONENTS, count.index)}-${var.ENV}"
   }
 }
 
