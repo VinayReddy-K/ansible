@@ -22,7 +22,7 @@
 - name: copying roboshop config file
   copy:
     src: roboshop.conf
-    dest: /etc/systemd/system/roboshop.conf
+    dest: /etc/nginx/default.d/roboshop.conf
 
 
 - name: restart nginx service
