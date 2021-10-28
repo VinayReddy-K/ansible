@@ -1,0 +1,4 @@
+- name: catalogue setup
+  include_role:
+    name: common
+    tasks_from: nodejs

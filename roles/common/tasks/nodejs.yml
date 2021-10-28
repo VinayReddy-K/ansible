@@ -1,0 +1,13 @@
+- name: Installing Nodejs
+  yum:
+    name: [ "nodejs", "make", "gcc-c++"]
+    state: present
+
+- name: Adding Roboshop Application User
+  user:
+    name: roboshop
+
+- name: Downloading catalogue component from Github
+  include_tasks:
+    file: download.yml
+
