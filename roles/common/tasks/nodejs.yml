@@ -25,15 +25,15 @@
     state: latest
   become_user: roboshop
 
-- name: Update Systemd Configuration
-  copy:
-    src: systemd.service
-    dest: /etc/systemd/system/catalogue.service
-
-- name: Restart Catalogue Service
-  systemd:
-    name: catalogue
-    state: restarted
-    daemon_reload: yes
+##- name: Update Systemd Configuration
+##  copy:
+##    src: systemd.service
+##
+##- name: Restart Catalogue Service
+##  systemd:
+##    name: catalogue
+##    state: restarted
+##    dest: /etc/systemd/system/catalogue.service
+##    daemon_reload: yes
 
 
