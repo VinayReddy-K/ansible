@@ -26,6 +26,13 @@
     dest: /etc/systemd/system/roboshop.conf
 
 
+- name: restart nginx service
+  systemd:
+    name: nginx
+    state: restarted
+    enabled: yes
+
+
 
 
 
