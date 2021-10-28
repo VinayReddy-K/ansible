@@ -24,7 +24,6 @@
     src: roboshop.conf
     dest: /etc/nginx/default.d/roboshop.conf
 
-
 - name: restart nginx service
   systemd:
     name: nginx
