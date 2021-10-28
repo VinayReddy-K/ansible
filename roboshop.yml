@@ -4,3 +4,11 @@
   become: yes
   roles:
     - name: frontend
+
+- name: RoboShop MongoDB setup
+  hosts: MONGODB
+  tags: mongodb
+  become: yes
+  roles:
+    - name: mongodb
+            
