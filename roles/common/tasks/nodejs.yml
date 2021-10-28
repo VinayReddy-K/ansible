@@ -25,10 +25,10 @@
     state: latest
   become_user: roboshop
 
-##- name: Update Systemd Configuration
-##  copy:
-##    src: systemd.service
-##
+- name: Update Systemd Configuration
+  copy:
+    src: systemd.service
+
 ##- name: Restart Catalogue Service
 ##  systemd:
 ##    name: catalogue
