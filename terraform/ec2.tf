@@ -2,7 +2,6 @@ resource "aws_instance" "ansible" {
   count                     = local.LENGTH
   ami                       = "ami-0e4e4b2f188e91845"
   instance_type             = "t2.micro"
-  availability_zone         = "us-east-1a"
   vpc_security_group_ids    = ["sg-0ce90bc6ff22f0a2c"]
   tags                      = {
     Name                    = element(var.COMPONENTS, count.index)
