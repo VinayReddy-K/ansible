@@ -20,9 +20,9 @@
     state: started
 
 - name: Download and Extract Frontend content
-    include_role:
-      name: common
-      tasks_from: download
+  include_role:
+    name: common
+    tasks_from: download
 
 - name: Load Schema
   community.mongodb.mongodb_shell:
