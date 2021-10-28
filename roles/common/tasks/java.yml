@@ -1,6 +1,6 @@
 - name: Install Maven
   yum:
-    name: Maven
+    name: maven
     state: installed
 
 - name: Downloading & Extracting App Code & Add User
