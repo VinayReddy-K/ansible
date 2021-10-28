@@ -26,4 +26,9 @@
   debug:
     msg: "{{default_mysql_passwd}}"
 
+- name: Grab Default Password
+  when: default_mysql_passwd.failed
+  shell: grep 'A temporary password' /var/log/mysqld.log | awk '{print $NF}'
+  register: out
+
 
