@@ -22,8 +22,8 @@
 
 - name: copying roboshop config file
   copy:
-  src: roboshop.conf
-  dest: /etc/systemd/system/roboshop.conf
+    src: roboshop.conf
+    dest: /etc/systemd/system/roboshop.conf
 
 
 
