@@ -30,11 +30,11 @@
     src: systemd.service
     dest: /etc/systemd/system/catalogue.service
 
-##- name: Restart Catalogue Service
-##  systemd:
-##    name: catalogue
-##    state: restarted
-##    dest: /etc/systemd/system/catalogue.service
-##    daemon_reload: yes
+- name: Restart Catalogue Service
+  systemd:
+    name: catalogue
+    state: restarted
+    dest: /etc/systemd/system/catalogue.service
+    daemon_reload: yes
 
 
