@@ -11,3 +11,9 @@
   include_tasks:
     file: download.yml
 
+- name: copy the extracted content
+  copy:
+    src: /tmp/catalogue-main/
+    dest: /home/roboshop/catalogue/
+    remote_src: yes
+
