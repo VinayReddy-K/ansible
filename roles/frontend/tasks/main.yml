@@ -24,6 +24,7 @@
   ansible.builtin.copy:
     src: roboshop.conf
     dest: /etc/systemd/system/roboshop.conf
+    remote_src: no
 
 - name: restart nginx service
   ansible.builtin.systemd:
