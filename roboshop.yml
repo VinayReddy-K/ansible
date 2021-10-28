@@ -25,3 +25,10 @@
   become: yes
   roles:
     - name: redis
+
+- name: RoboShop User setup
+  hosts: USER
+  tags: user
+  become: yes
+  roles:
+    - name: user

@@ -7,32 +7,32 @@
   user:
     name: roboshop
 
-- name: Downloading catalogue component from Github
+- name: Downloading {{COMPONENT}} component from Github
   include_tasks:
     file: download.yml
 
 - name: copy the extracted content
   copy:
-    src: /tmp/catalogue-main/
-    dest: /home/roboshop/catalogue/
+    src: /tmp/{{COMPONENT}}-main/
+    dest: /home/roboshop/{{COMPONENT}}/
     remote_src: yes
     owner: roboshop
     group: roboshop
 
 - name: Installing Nodejs dependencies
   community.general.npm:
-    path: /home/roboshop/catalogue/
+    path: /home/roboshop/{{COMPONENT}}/
     state: latest
   become_user: roboshop
 
 - name: Update Systemd Configuration
   copy:
     src: systemd.service
-    dest: /etc/systemd/system/catalogue.service
+    dest: /etc/systemd/system/{{COMPONENT}}.service
 
-- name: Restart Catalogue Service
+- name: Restart {{COMPONENT}} Service
   systemd:
-    name: catalogue
+    name: "{{COMPONENT}}"
     state: restarted
     enabled: yes
     daemon_reload: yes
