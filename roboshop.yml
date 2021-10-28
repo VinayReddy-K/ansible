@@ -39,3 +39,10 @@
   become: yes
   roles:
     - name: cart
+
+- name: RoboShop Mysql setup
+  hosts: MYSQL
+  tags: mysql
+  become: yes
+  roles:
+    - name: mysql
