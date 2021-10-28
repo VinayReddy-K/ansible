@@ -1,0 +1,20 @@
+- name: Install Maven
+  yum:
+    name: Maven
+    state: present
+
+- name: Downloading & Extracting App Code & Add User
+  include_tasks:
+    file: download.yml
+
+- name: Compile The Packges
+  shell: mvn clean package && mv target/shipping-1.0.jar shipping.jar
+  args:
+    chdir: /home/roboshop/{{COMPONENT}}
+
+- name: Setup Systemd
+  include_tasks:
+    file: systemd-setup.yml
+
+
+

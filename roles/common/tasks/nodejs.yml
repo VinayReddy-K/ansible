@@ -3,21 +3,9 @@
     name: [ "nodejs", "make", "gcc-c++"]
     state: present
 
-- name: Adding Roboshop Application User
-  user:
-    name: roboshop
-
-- name: Downloading {{COMPONENT}} component from Github
+- name: Downloading & Extracting App Code & Add User
   include_tasks:
     file: download.yml
-
-- name: copy the extracted content
-  copy:
-    src: /tmp/{{COMPONENT}}-main/
-    dest: /home/roboshop/{{COMPONENT}}/
-    remote_src: yes
-    owner: roboshop
-    group: roboshop
 
 - name: Installing Nodejs dependencies
   community.general.npm:
@@ -25,16 +13,8 @@
     state: latest
   become_user: roboshop
 
-- name: Update Systemd Configuration
-  copy:
-    src: systemd.service
-    dest: /etc/systemd/system/{{COMPONENT}}.service
-
-- name: Restart {{COMPONENT}} Service
-  systemd:
-    name: "{{COMPONENT}}"
-    state: restarted
-    enabled: yes
-    daemon_reload: yes
+- name: Setup Systemd
+  include_tasks:
+    file: systemd-setup.yml
 
 
