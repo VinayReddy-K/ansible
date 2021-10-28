@@ -1,4 +1,4 @@
-- name: RoboShop setup
+- name: RoboShop Frontend setup
   hosts: FRONTEND
   tags: frontend
   become: yes
