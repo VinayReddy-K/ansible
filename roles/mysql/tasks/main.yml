@@ -21,3 +21,9 @@
     login_password: RoboShop@1
   register: default_mysql_passwd
   ignore_errors: yes
+
+- name: print
+  debug:
+    msg: "{{default_mysql_passwd}}"
+
+
