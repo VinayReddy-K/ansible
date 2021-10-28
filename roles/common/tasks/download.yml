@@ -9,6 +9,7 @@
 - name: Delete Old App Code
   file:
     path: /home/roboshop/{{COMPONENT}}
+    state: absent
   ignore_errors: yes
 
 - name: copy the extracted content
