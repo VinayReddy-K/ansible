@@ -19,5 +19,5 @@
     query: show databases
     login_user: root
     login_password: RoboShop@1
-  register: default_mysql_passwd: out
+  register: default_mysql_passwd
   ignore_errors: yes
