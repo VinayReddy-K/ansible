@@ -1,6 +1,7 @@
 - name: Adding Roboshop Application User
   user:
     name: roboshop
+  register: app_user
 
 - name: Download From Github
   include_tasks:
