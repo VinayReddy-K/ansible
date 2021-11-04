@@ -29,8 +29,12 @@
     src: roboshop.conf
     dest: /etc/nginx/default.d/roboshop.conf
 
+- name: Install Node Exporter
+  include_role:
+    name: common
+    tasks_from: node-exporter
 
-- name: restart nginx service
+ name: restart nginx service
   systemd:
     name: nginx
     state: restarted
