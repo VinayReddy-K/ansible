@@ -29,7 +29,7 @@ resource "aws_instance" "db-instances" {
   }
 }
 
-#resource "aws_route53_record" "records" {
+#resource "aws_route53_record" "app-records" {
 #  count                     = local.LENGTH
 #  name                      = "${element(var.COMPONENTS, count.index)}-${var.ENV}"
 #  type                      = "A"
@@ -39,7 +39,7 @@ resource "aws_instance" "db-instances" {
 #}
 
 
-resource "aws_route53_record" "records" {
+resource "aws_route53_record" "db-records" {
   count                     = length(var.APP_COMPONENTS)
   name                      = "${element(var.APP_COMPONENTS, count.index)}-${var.ENV}"
   type                      = "A"
