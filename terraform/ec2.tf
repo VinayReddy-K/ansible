@@ -39,7 +39,7 @@ resource "aws_instance" "db-instances" {
 #}
 
 
-resource "aws_route53_record" "db-records" {
+resource "aws_route53_record" "app-records" {
   count                     = length(var.APP_COMPONENTS)
   name                      = "${element(var.APP_COMPONENTS, count.index)}-${var.ENV}"
   type                      = "A"
@@ -48,7 +48,7 @@ resource "aws_route53_record" "db-records" {
   records                   = [element(aws_instance.app-instances.*.private_ip, count.index)]
 }
 
-resource "aws_route53_record" "records" {
+resource "aws_route53_record" "db-records" {
   count                     = length(var.DB_COMPONENTS)
   name                      = "${element(var.DB_COMPONENTS, count.index)}-${var.ENV}"
   type                      = "A"
