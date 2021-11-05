@@ -1,6 +1,6 @@
 #resource "aws_instance" "ansible" {
 #  count                     = local.LENGTH
-#  ami                       = "ami-0e4e4b2f188e91845"
+#  ami                       = "ami-0dc863062bc04e1de"
 #  instance_type             = "t2.micro"
 #  vpc_security_group_ids    = ["sg-0ce90bc6ff22f0a2c"]
 #  tags                      = {
@@ -10,7 +10,7 @@
 
 resource "aws_instance" "app-instances" {
   count                     = length(var.APP_COMPONENTS)
-  ami                       = "ami-0e4e4b2f188e91845"
+  ami                       = "ami-0dc863062bc04e1de"
   instance_type             = "t2.micro"
   vpc_security_group_ids    = ["sg-0ce90bc6ff22f0a2c"]
   tags                      = {
@@ -21,7 +21,7 @@ resource "aws_instance" "app-instances" {
 
 resource "aws_instance" "db-instances" {
   count                     = length(var.DB_COMPONENTS)
-  ami                       = "ami-0e4e4b2f188e91845"
+  ami                       = "ami-0dc863062bc04e1de"
   instance_type             = "t2.micro"
   vpc_security_group_ids    = ["sg-0ce90bc6ff22f0a2c"]
   tags                      = {
