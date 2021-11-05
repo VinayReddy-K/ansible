@@ -75,5 +75,6 @@ resource "local_file" "ansible" {
   content         = "[FRONTEND]\n${local.COMPONENT[9]}\n[PAYMENT]\n${local.COMPONENT[8]}\n[SHIPPING]\n${local.COMPONENT[7]}\n[USER]\n${local.COMPONENT[6]}\n[CATALOGUE]\n${local.COMPONENT[5]}\n[CART]\n${local.COMPONENT[4]}\n[REDIS]\n${local.COMPONENT[3]}\n[RABBITMQ]\n${local.COMPONENT[2]}\n[MONGODB]\n${local.COMPONENT[1]}\n[MYSQL]\n${local.COMPONENT[0]}"
   filename        = "/tmp/inv-roboshop-${var.ENV}"
 }
+#
 
  
