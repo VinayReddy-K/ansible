@@ -8,7 +8,7 @@ filebeat.inputs:
       - {{LOG_FILE}}
     fields:
       component: {{COMPONENT}}
-
+      structured: {{STRUCTURED}}
 output.logstash:
   hosts: ["172.31.18.207:5044"]
 
