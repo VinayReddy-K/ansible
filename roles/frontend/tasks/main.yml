@@ -39,12 +39,6 @@
     name: common
     tasks_from: node-exporter
 
-- name: restart nginx service
-  systemd:
-    name: nginx
-    state: restarted
-    enabled: yes
-
 - name: Setup Filebeat
   include_role:
     name: common
@@ -53,7 +47,11 @@
     LOG_FILE: /var/log/nginx/access.log
     STRUCTURED: "false"
 
-
+- name: restart nginx service
+  systemd:
+    name: nginx
+    state: restarted
+    enabled: yes
 
 
 
