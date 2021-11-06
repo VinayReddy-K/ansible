@@ -19,7 +19,7 @@
     dest: /usr/share/nginx/html/
     remote_src: yes
 
-- name: Update Main NginxConfig
+- name: Update Main Nginx Config
   ansible.builtin.copy:
     src: nginx.conf
     dest: /etc/nginx/nginx.conf
@@ -44,6 +44,14 @@
     name: nginx
     state: restarted
     enabled: yes
+
+- name: Setup Filebeat
+  include_role:
+    name: common
+    tasks_from: filebeat
+  vars:
+    LOG_FILE: /var/log/nginx/access.log
+
 
 
 
