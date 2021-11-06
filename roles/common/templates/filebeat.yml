@@ -3,8 +3,8 @@ filebeat.inputs:
     enabled: true
     paths:
       - {{LOG_FILE}}
-##output.logstash:
-##  hosts: ["elk.roboshop.internal:5044"]
+output.logstash:
+  hosts: ["172.31.18.207:5044"]
 
 
 
