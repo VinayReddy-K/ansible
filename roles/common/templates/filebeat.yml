@@ -6,10 +6,10 @@ filebeat.inputs:
 ##{% endif %}
     paths:
       - {{LOG_FILE}}
-##    fields:
-##      component: {{COMPONENT}}
-##      STRUCTURED: {{STRUCTURED}}
-##      APP_TYPE: {{APP_TYPE}}
+    ##fields:
+      ##component: {{COMPONENT}}
+      ##STRUCTURED: {{STRUCTURED}}
+      ##APP_TYPE: {{APP_TYPE}}
 ##{% if APP_TYPE == "java" %}
 ##    multiline.pattern: "^[0-9][0-9][0-9][0-9]-"
 ##    multiline.negate: true
