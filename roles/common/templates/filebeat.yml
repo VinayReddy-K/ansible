@@ -1,25 +1,25 @@
 filebeat.inputs:
   - type: log
     enabled: true
-#{% if STRUCTURED == "true" %}
-#    json.keys_under_root: true
-#{% endif %}
+##{% if STRUCTURED == "true" %}
+##    json.keys_under_root: true
+##{% endif %}
     paths:
       - {{LOG_FILE}}
-#    fields:
-#      component: {{COMPONENT}}
-#      STRUCTURED: {{STRUCTURED}}
-#      APP_TYPE: {{APP_TYPE}}
-#{% if APP_TYPE == "java" %}
-#    multiline.pattern: "^[0-9][0-9][0-9][0-9]-"
-#    multiline.negate: true
-#    multiline.match: after
-#{% endif %}
-#{% if APP_TYPE == "python" %}
-#    include_lines: ['^\[']
-#{% endif %}
-#output.logstash:
-#  hosts: ["elk.roboshop.internal:5044"]
+##    fields:
+##      component: {{COMPONENT}}
+##      STRUCTURED: {{STRUCTURED}}
+##      APP_TYPE: {{APP_TYPE}}
+##{% if APP_TYPE == "java" %}
+##    multiline.pattern: "^[0-9][0-9][0-9][0-9]-"
+##    multiline.negate: true
+##    multiline.match: after
+##{% endif %}
+##{% if APP_TYPE == "python" %}
+##    include_lines: ['^\[']
+##{% endif %}
+##output.logstash:
+##  hosts: ["elk.roboshop.internal:5044"]
 
 
 
