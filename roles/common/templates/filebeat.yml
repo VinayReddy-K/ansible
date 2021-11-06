@@ -6,6 +6,9 @@ filebeat.inputs:
 {% endif %}
     paths:
       - {{LOG_FILE}}
+    fields:
+      component: {{COMPONENT}}
+
 output.logstash:
   hosts: ["172.31.18.207:5044"]
 
