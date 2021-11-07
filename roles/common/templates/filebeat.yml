@@ -17,6 +17,10 @@ filebeat.inputs:
     multiline.match: after
 {% endif %}
 
+{% if APP_TYPE == "python" %}
+    include_lines: ['^\[']
+{% endif %}
+
 output.logstash:
   hosts: ["172.31.24.70:5044"]
 
